@@ -1,0 +1,929 @@
+Program.Sub.ScreenSU.Start
+gui.FormPO..create
+gui.FormPO..caption("Process PO")
+gui.FormPO..size(16155,7515)
+gui.FormPO..minx(0)
+gui.FormPO..miny(0)
+gui.FormPO..position(0,0)
+gui.FormPO..event(unload,formpo_unload)
+gui.FormPO..alwaysontop(False)
+gui.FormPO..fontname("Arial")
+gui.FormPO..fontsize(8)
+gui.FormPO..forecolor(0)
+gui.FormPO..fontstyle(,,,,)
+gui.FormPO..BackColor(-2147483633)
+gui.FormPO..controlbox(True)
+gui.FormPO..maxbutton(False)
+gui.FormPO..minbutton(True)
+gui.FormPO..mousepointer(0)
+gui.FormPO..moveable(True)
+gui.FormPO..sizeable(False)
+gui.FormPO..ShowInTaskBar(True)
+gui.FormPO..titlebar(True)
+gui.FormPO.lbl1.create(label,"Select Lines to Process:",True,1935,255,1,200,600,True,0,Arial,8,-2147483633,0)
+gui.FormPO.lbl1.defaultvalue("")
+gui.FormPO.lbl1.controlgroup(0)
+gui.FormPO.gsfg_Lines.create(gsflexgrid)
+gui.FormPO.gsfg_Lines.FixedRows(0)
+gui.FormPO.gsfg_Lines.FixedCols(0)
+gui.FormPO.gsfg_Lines.visible(True)
+gui.FormPO.gsfg_Lines.size(15525,5385)
+gui.FormPO.gsfg_Lines.zorder(0)
+gui.FormPO.gsfg_Lines.position(200,1000)
+gui.FormPO.gsfg_Lines.enabled(True)
+gui.FormPO.optJobs.create(option)
+gui.FormPO.optJobs.caption("Work Order")
+gui.FormPO.optJobs.visible(True)
+gui.FormPO.optJobs.size(1200,255)
+gui.FormPO.optJobs.zorder(0)
+gui.FormPO.optJobs.position(200,200)
+gui.FormPO.optJobs.enabled(True)
+gui.FormPO.optJobs.alignment(0)
+gui.FormPO.optJobs.fontname("Arial")
+gui.FormPO.optJobs.fontsize(8)
+gui.FormPO.optJobs.event(click,optjobs_click)
+gui.FormPO.optJobs.defaultvalue("")
+gui.FormPO.optJobs.controlgroup(0)
+gui.FormPO.optProjs.create(option)
+gui.FormPO.optProjs.caption("Project")
+gui.FormPO.optProjs.visible(True)
+gui.FormPO.optProjs.size(1665,255)
+gui.FormPO.optProjs.zorder(0)
+gui.FormPO.optProjs.position(1440,200)
+gui.FormPO.optProjs.enabled(True)
+gui.FormPO.optProjs.alignment(0)
+gui.FormPO.optProjs.fontname("Arial")
+gui.FormPO.optProjs.fontsize(8)
+gui.FormPO.optProjs.event(click,optprojs_click)
+gui.FormPO.optProjs.defaultvalue("")
+gui.FormPO.optProjs.controlgroup(0)
+gui.FormPO.cmdProcess.create(button)
+gui.FormPO.cmdProcess.caption("Process")
+gui.FormPO.cmdProcess.visible(True)
+gui.FormPO.cmdProcess.size(1110,375)
+gui.FormPO.cmdProcess.zorder(0)
+gui.FormPO.cmdProcess.position(200,6500)
+gui.FormPO.cmdProcess.enabled(True)
+gui.FormPO.cmdProcess.fontname("Arial")
+gui.FormPO.cmdProcess.fontsize(8)
+gui.FormPO.cmdProcess.event(click,cmdprocess_click)
+gui.FormPO.cmdProcess.defaultvalue("")
+gui.FormPO.cmdProcess.controlgroup(0)
+gui.FormPO.ddlPhase.create(dropdownlist)
+gui.FormPO.ddlPhase.visible(False)
+gui.FormPO.ddlPhase.size(1455,330)
+gui.FormPO.ddlPhase.zorder(0)
+gui.FormPO.ddlPhase.position(3800,200)
+gui.FormPO.ddlPhase.enabled(True)
+gui.FormPO.ddlPhase.fontname("Arial")
+gui.FormPO.ddlPhase.fontsize(8)
+gui.FormPO.ddlPhase.event(click,ddlphase_click)
+gui.FormPO.ddlPhase.defaultvalue("")
+gui.FormPO.ddlPhase.controlgroup(0)
+gui.FormPO.lbl2.create(label,"Phase:",False,540,255,1,3200,200,True,0,Arial,8,-2147483633,0)
+gui.FormPO.lbl2.defaultvalue("")
+gui.FormPO.lbl2.controlgroup(0)
+gui.FormPO.lblOpCode.create(label,"Op Code:",False,1935,255,1,5400,200,True,0,Arial,8,-2147483633,0)
+gui.FormPO.lblOpCode.defaultvalue("")
+gui.FormPO.lblOpCode.controlgroup(0)
+gui.FormPO.ddlOpCode.create(dropdownlist)
+gui.FormPO.ddlOpCode.visible(False)
+gui.FormPO.ddlOpCode.size(1455,330)
+gui.FormPO.ddlOpCode.zorder(0)
+gui.FormPO.ddlOpCode.position(6200,200)
+gui.FormPO.ddlOpCode.enabled(True)
+gui.FormPO.ddlOpCode.fontname("Arial")
+gui.FormPO.ddlOpCode.fontsize(8)
+gui.FormPO.ddlOpCode.event(click,ddlopcode_click)
+gui.FormPO.ddlOpCode.defaultvalue("")
+gui.FormPO.ddlOpCode.controlgroup(0)
+gui.FormPO.cmdUpdate.create(button)
+gui.FormPO.cmdUpdate.caption("Reset Project")
+gui.FormPO.cmdUpdate.visible(False)
+gui.FormPO.cmdUpdate.size(1200,375)
+gui.FormPO.cmdUpdate.zorder(0)
+gui.FormPO.cmdUpdate.position(7900,200)
+gui.FormPO.cmdUpdate.enabled(True)
+gui.FormPO.cmdUpdate.fontname("Arial")
+gui.FormPO.cmdUpdate.fontsize(8)
+gui.FormPO.cmdUpdate.event(click,cmdupdate_click)
+gui.FormPO.cmdUpdate.defaultvalue("")
+gui.FormPO.cmdUpdate.controlgroup(0)
+gui.FormPO.chkIncludeMisc.create(checkbox)
+gui.FormPO.chkIncludeMisc.caption("Include Misc. Sequences")
+gui.FormPO.chkIncludeMisc.visible(True)
+gui.FormPO.chkIncludeMisc.size(2190,255)
+gui.FormPO.chkIncludeMisc.zorder(0)
+gui.FormPO.chkIncludeMisc.position(2300,600)
+gui.FormPO.chkIncludeMisc.enabled(True)
+gui.FormPO.chkIncludeMisc.alignment(0)
+gui.FormPO.chkIncludeMisc.fontname("Arial")
+gui.FormPO.chkIncludeMisc.fontsize(8)
+gui.FormPO.chkIncludeMisc.event(click,chkincludemisc_click)
+gui.FormPO.chkIncludeMisc.defaultvalue("")
+gui.FormPO.chkIncludeMisc.controlgroup(0)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Variable.UDT.uLines.Define("Job",String,Job)
+Variable.UDT.uLines.Define("Seq",String,Seq)
+Variable.UDT.uLines.Define("Part",String,Part)
+Variable.UDT.uLines.Define("Description",String,Description)
+Variable.UDT.uLines.Define("Qty",Float,Qty)
+Variable.UDT.uLines.Define("UM",String,UM)
+Variable.UDT.uLines.Define("Phase",String,Phase)
+Variable.Global.sJob.Declare(String)
+Variable.Global.sProject.Declare(String)
+Variable.UDT.uJobOps.Define("Job",String,Job)
+Variable.UDT.uJobOps.Define("Operation",String,Operation)
+Variable.UDT.uJobOps.Define("Part",String,Part)
+Variable.UDT.uJobOps.Define("Seq",String,Seq)
+Variable.UDT.uJobOps.Define("Suffix",String,Suffix)
+Variable.UDT.uJobOps.Define("UM",String,UM)
+Variable.UDT.uJobOps.Define("Units_Open",String,Units_Open)
+Variable.UDT.uJobOps.Define("Name_Vendor",String)
+Variable.UDT.uJobOps.Define("Select",String)
+Variable.UDT.uJobOps.Define("Description",String,Description)
+
+Variable.uGlobal.uJobOps.Declare("uJobOps")
+Variable.UDT.uJobHeader.Define("Job",String,Job)
+Variable.UDT.uJobHeader.Define("Suffix",String,Suffix)
+Variable.uGlobal.uJobHeader.Declare("uJobHeader")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+'Coded by SFF 3/15/2015
+'Hook 15903 Required PO Request Hook GUI
+
+F.ODBC.Connection!conX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,72000)
+
+'Job-Suffix
+F.Intrinsic.String.Build("{0}-{1}",V.Passed.009990,V.Passed.009991,V.Global.sJob)
+
+V.Passed.777777.Set(1)
+
+Gui.FormPO.gsfg_Lines.Visible(false)
+F.Intrinsic.Control.CallSub(Loadscreen)
+Gui.FormPO.gsfg_Lines.Visible(True)
+Gui.FormPO..Show
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+Function.Intrinsic.String.Concat("Project: GCG_4001_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+program.sub.optprojs_click.start
+F.Intrinsic.Control.SetErrorHandler("optprojs_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.i.Declare(Long)
+
+V.uGlobal.uJobHeader.Redim(-1,-1)
+V.uGlobal.uJobOps.Redim(-1,-1)
+Gui.FormPO..Visible(false)
+F.Intrinsic.UI.InvokeWaitDialog("Loading Outside Sequences")
+'make phase visible or not when Projects Opt is checked or not
+F.Intrinsic.Control.If(V.Screen.FormPO!optProjs.Value,=,True)
+	Gui.FormPO.ddlPhase.Visible(true)
+	Gui.FormPO.lbl2.Visible(True)
+	Gui.FormPO.lblOpCode.Visible(true)
+	Gui.FormPO.ddlOpCode.Visible(true)
+	Gui.FormPO.cmdUpdate.Visible(true)
+F.Intrinsic.Control.Else
+	Gui.FormPO.ddlPhase.Visible(false)
+	Gui.FormPO.lbl2.Visible(false)
+	Gui.FormPO.lblOpCode.Visible(false)
+	Gui.FormPO.ddlOpCode.Visible(false)
+	Gui.FormPO.cmdUpdate.Visible(false)
+F.Intrinsic.Control.EndIf
+
+'Load grid based on Project
+'load job header info to UDT
+F.Intrinsic.String.Build("Select Job,Suffix from v_JOB_HEADER where Project = '{0}' and DATE_CLOSED = '1900-01-01'",V.Global.sProject,V.Local.sSql)
+'Loop through and add operations detail for each job-suffix
+F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobHeader",False)
+F.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+'exclude misc sequences
+F.Intrinsic.Control.If(V.Screen.FormPO!chkIncludeMisc.Value,<>,1)
+'Load Job Detail
+	F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound)
+		F.Intrinsic.String.Build("Select Operation,Part,Description,Units_Open,UM,Job,Suffix,Seq from v_JOB_OPERATIONS where ltrim(rtrim(job)) = '{0}' and suffix = '{1}' and LMO = 'O' and SEQ < '995000' and FLAG_CLOSED <> 'Y' ",V.uGlobal.uJobHeader(v.Local.i)!Job.Trim,V.uGlobal.uJobHeader(v.Local.i)!Suffix.Trim,V.Local.sSql)
+		F.odbc.connection!conX.openrecordsetRO("rst",V.local.sSql)
+		F.intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Control.If(V.Local.i,=,V.uGlobal.uJobHeader.LBound)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",False)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i)
+'Include Misc Sequences
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound)
+		F.Intrinsic.String.Build("Select Operation,Part,Description,Units_Open,UM,Job,Suffix,Seq from v_JOB_OPERATIONS where ltrim(rtrim(job)) = '{0}' and suffix = '{1}'  and LMO = 'O' and FLAG_CLOSED <> 'Y'",V.uGlobal.uJobHeader(v.Local.i)!Job.Trim,V.uGlobal.uJobHeader(v.Local.i)!Suffix.Trim,V.Local.sSql)
+		F.odbc.connection!conX.openrecordsetRO("rst",V.local.sSql)
+		F.intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Control.If(V.Local.i,=,V.uGlobal.uJobHeader.LBound)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",False)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.Control.EndIf
+
+'Loop through and get vendor name
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound)
+	F.Intrinsic.String.Build("Select Name_Vendor from v_Vendor_Master where Vendor = '{0}'",V.uGlobal.uJobOps(v.Local.i)!Operation.Trim,V.Local.sSql)
+	F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+		V.uGlobal.uJobOps(v.Local.i)!Name_Vendor.Set(V.ODBC.conX!rst.FieldValTrim!Name_Vendor)
+		V.uGlobal.uJobOps(v.Local.i)!Select.Set("0")
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+F.Intrinsic.Control.Next(V.Local.i)
+
+'Sort UDT
+F.Intrinsic.Variable.UDTMultiQuickSort(V.uGlobal.uJobOps!Job,False,V.uGlobal.uJobOps!Suffix,False,V.uGlobal.uJobOps!Seq,False,V.uGlobal.uJobOps!Operation,False)
+
+'***where left off, have to load from UDT instead of loadRecordset 4/14/2015 SFF
+Gui.FormPO.gsfg_Lines.Visible(false)
+F.Intrinsic.Control.CallSub(Buildstyles)
+'Load UDT to Grid
+Gui.FormPO.gsfg_Lines.LoadFromUDT("V.uGlobal.uJobOps","Select::0*!*Operation::1*!*Part::2*!*Description::3*!*Units_Open::4*!*UM::5*!*Name_Vendor::6*!*Job::7*!*Suffix::8*!*Seq::9",2)
+Gui.FormPO.gsfg_Lines.Visible(true)
+
+'Load Phases
+Gui.FormPO.ddlPhase.ClearItems
+Gui.FormPO.ddlPhase.AddItem("")
+Gui.FormPO.ddlOpCode.ClearItems
+'Load Project Phases
+F.Intrinsic.String.Build("Select Distinct PHASE from v_job_header where project = '{0}'",V.Global.sProject,V.Local.sSql)
+F.ODBC.Connection!conX.OpenRecordsetRO("rstPhase",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.conX!rstPhase.EOF,<>,True)
+	F.Intrinsic.Control.DoUntil(V.ODBC.conX!rstPhase.EOF,=,True)
+		F.Intrinsic.Control.If(V.ODBC.conX!rstPhase.FieldValTrim!PHASE,<>,"")
+			Gui.FormPO.ddlPhase.AddItem(V.ODBC.conX!rstPhase.FieldValTrim!PHASE)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rstPhase.MoveNext
+	F.Intrinsic.Control.Loop
+F.Intrinsic.Control.EndIf
+F.ODBC.conX!rstPhase.Close
+Gui.FormPO..Visible(True)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("optprojs_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4001_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.optprojs_click.end
+
+program.sub.optjobs_click.start
+F.Intrinsic.Control.SetErrorHandler("optjobs_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sRet.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.i.Declare(Long)
+
+V.uGlobal.uJobHeader.Redim(-1,-1)
+V.uGlobal.uJobOps.Redim(-1,-1)
+'make phase visible or not when Projects Opt is checked or not
+F.Intrinsic.Control.If(V.Screen.FormPO!optProjs.Value,=,True)
+	Gui.FormPO.ddlPhase.Visible(true)
+	Gui.FormPO.lbl2.Visible(True)
+	Gui.FormPO.lblOpCode.Visible(true)
+	Gui.FormPO.ddlOpCode.Visible(true)
+	Gui.FormPO.cmdUpdate.Visible(true)
+F.Intrinsic.Control.Else
+	Gui.FormPO.ddlPhase.Visible(false)
+	Gui.FormPO.lbl2.Visible(false)
+	Gui.FormPO.lblOpCode.Visible(false)
+	Gui.FormPO.ddlOpCode.Visible(false)
+	Gui.FormPO.cmdUpdate.Visible(false)
+F.Intrinsic.Control.EndIf
+
+'Load only Work Order info that was passed
+'Load grid based on Project,phase and operation OPcode
+'load job heade info to UDT
+Gui.FormPO..Visible(false)
+F.Intrinsic.UI.InvokeWaitDialog("Loading Outside Sequences")
+F.Intrinsic.String.Build("Select Job,Suffix from v_JOB_HEADER where ltrim(rtrim(job)) + '-' + Suffix = '{0}' and DATE_CLOSED = '1900-01-01'",V.Global.sJob.Trim,V.Local.sSql)
+'Loop through and add operations detail for each job-suffix
+F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobHeader",False)
+F.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+'exclude misc sequences
+F.Intrinsic.Control.If(V.Screen.FormPO!chkIncludeMisc.Value,<>,1)
+'Load Job Detail
+	F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound)
+		F.Intrinsic.String.Build(" Select Operation,Part,Description,Units_Open,UM,Job,Suffix,Seq from v_JOB_OPERATIONS where ltrim(rtrim(job)) = '{0}' and suffix = '{1}' and LMO = 'O' and SEQ < '995000' and FLAG_CLOSED <> 'Y'",V.uGlobal.uJobHeader(v.Local.i)!Job.Trim,V.uGlobal.uJobHeader(v.Local.i)!Suffix.Trim,V.Local.sSql)
+		F.odbc.connection!conX.openrecordsetRO("rst",V.local.sSql)
+		F.intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Control.If(V.Local.i,=,V.uGlobal.uJobHeader.LBound)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",False)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i)
+'Include Misc Sequences
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound)
+		F.Intrinsic.String.Build("Select Operation,Part,Description,Units_Open,UM,Job,Suffix,Seq from v_JOB_OPERATIONS where ltrim(rtrim(job)) = '{0}' and suffix = '{1}'  and LMO = 'O' and FLAG_CLOSED <> 'Y'",V.uGlobal.uJobHeader(v.Local.i)!Job.Trim,V.uGlobal.uJobHeader(v.Local.i)!Suffix.Trim,V.Local.sSql)
+		F.odbc.connection!conX.openrecordsetRO("rst",V.local.sSql)
+		F.intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Control.If(V.Local.i,=,V.uGlobal.uJobHeader.LBound)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",False)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.Control.EndIf
+
+'Loop through and get vendor name
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound)
+	F.Intrinsic.String.Build("Select Name_Vendor from v_Vendor_Master where Vendor = '{0}'",V.uGlobal.uJobOps(v.Local.i)!Operation.Trim,V.Local.sSql)
+	F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+		V.uGlobal.uJobOps(v.Local.i)!Name_Vendor.Set(V.ODBC.conX!rst.FieldValTrim!Name_Vendor)
+		V.uGlobal.uJobOps(v.Local.i)!Select.Set("0")
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+F.Intrinsic.Control.Next(V.Local.i)
+'Sort UDT
+F.Intrinsic.Variable.UDTMultiQuickSort(V.uGlobal.uJobOps!Job,False,V.uGlobal.uJobOps!Suffix,False,V.uGlobal.uJobOps!Seq,False,V.uGlobal.uJobOps!Operation,False)
+
+'***where left off, have to load from UDT instead of loadRecordset 4/14/2015 SFF
+Gui.FormPO.gsfg_Lines.Visible(false)
+F.Intrinsic.Control.CallSub(Buildstyles)
+'Load UDT to Grid
+Gui.FormPO.gsfg_Lines.LoadFromUDT("V.uGlobal.uJobOps","Select::0*!*Operation::1*!*Part::2*!*Description::3*!*Units_Open::4*!*UM::5*!*Name_Vendor::6*!*Job::7*!*Suffix::8*!*Seq::9",2)
+Gui.FormPO.gsfg_Lines.Visible(true)
+Gui.FormPO..Visible(True)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("optjobs_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.optjobs_click.end
+
+program.sub.cmdprocess_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdprocess_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.i.Declare(Float)
+V.Local.iRows.Declare(Float)
+V.Local.sRet.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.iSeq.Declare(Float)
+
+V.Local.sDate.Declare(String)
+F.Intrinsic.String.Format(V.Ambient.Date,"MMDDYY",V.Local.sDate)
+
+'Loop through grid and if row is checked, write line to MAT_ONLINE table
+V.Local.iRows.Set(V.Screen.FormPO!gsfg_Lines.Rows)
+F.Intrinsic.Math.Sub(V.Local.iRows,1,V.Local.iRows)
+F.Intrinsic.Control.For(V.Local.i,1,V.Local.iRows,1)
+	Gui.FormPO.gsfg_Lines.ReadRow(V.Local.i,V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet(0).Trim,=,1)
+		'if row is checked to process then write record to MAT_ONLINE
+		'check to see if KEY SEQ already exists for Job-Suffix-Seq, if so then increment to next availible KEY SEQ for that Job-Suffix-Seq
+		F.Intrinsic.String.Build("Select * from MAT_ONLINE where JOB = '{0}' and JOB_SUFFIX = '{1}' and SEQUENCE = '{2}' order by KEY_SEQ desc",V.Local.sRet(7).Trim,V.Local.sRet(8).trim,V.Local.sRet(9).Trim,V.Local.sSql)
+		F.ODBC.Connection!conX.OpenRecordsetRW("rst",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			V.Local.sSeq.Set(V.ODBC.conX!rst.FieldVal!KEY_SEQ)
+			V.Local.iSeq.Set(V.Local.sSeq.Long)
+			F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+			F.Intrinsic.String.ConvertToString(V.Local.iSeq,V.Local.sSeq)
+			F.Intrinsic.String.LPad(V.Local.sSeq,"0",6,V.Local.sSeq)
+		F.Intrinsic.Control.Else
+			V.Local.sSeq.Set("000000")
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+		F.ODBC.Connection!conX.OpenRecordsetRW("rst","Select * from MAT_ONLINE")
+		F.ODBC.conX!rst.AddNew
+		F.ODBC.conX!rst.Set!JOB(V.Local.sRet(7).Trim)
+		F.ODBC.conX!rst.Set!JOB_SUFFIX(V.Local.sRet(8).Trim)
+		F.ODBC.conX!rst.Set!SEQUENCE(V.Local.sRet(9).Trim)
+		F.ODBC.conX!rst.Set!KEY_SEQ(V.Local.sSeq)
+		F.ODBC.conX!rst.Set!PART(V.Local.sRet(2).Trim)
+		F.ODBC.conX!rst.Set!QUANTITY(V.Local.sRet(4).Trim)
+		F.ODBC.conX!rst.Set!MOL_DATE(V.Local.sDate)
+		F.ODBC.conX!rst.Set!MOL_TYPE("O")
+		F.ODBC.conX!rst.Set!VENDOR(V.Local.sRet(1).Trim)
+		F.ODBC.conX!rst.Update
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdprocess_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4001_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdprocess_click.end
+
+program.sub.formpo_unload.start
+F.Intrinsic.Control.SetErrorHandler("formpo_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("formpo_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4001_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.formpo_unload.end
+
+Program.Sub.BuildStyles.Start
+F.Intrinsic.Control.SetErrorHandler("BuildStyles_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSql.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.i.Declare(Float)
+V.Local.iRet.Declare(Float)
+V.Local.iUB.Declare(Float)
+
+Gui.FormPO.gsfg_Lines.Rows(1)
+Gui.FormPO.gsfg_Lines.Rows(2)
+Gui.FormPO.gsfg_Lines.FixedRows(1)
+Gui.FormPO.gsfg_Lines.Cols(10)
+
+'style 1 for fixed row, 2 for Data
+
+'Checkbox Column
+Gui.FormPO.gsfg_Lines.TextMatrix(0,0,"Select")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,0,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,0,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,0,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,0,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,0,"Type","Checkbox","")
+Gui.FormPO.gsfg_Lines.BuildStyle(2,0,"Format","Alignment",2)
+
+'Job
+Gui.FormPO.gsfg_Lines.TextMatrix(1,0,"Op Code")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,1,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,1,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,1,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,1,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,1,"Type","Locked","True")
+Gui.FormPO.gsfg_Lines.BuildStyle(2,1,"Format","Alignment",2)
+
+'Sequence
+Gui.FormPO.gsfg_Lines.TextMatrix(2,0,"Part")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,2,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,2,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,2,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,2,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,2,"Type","Locked","True")
+Gui.FormPO.gsfg_Lines.BuildStyle(2,2,"Format","Alignment",2)
+
+'Part
+Gui.FormPO.gsfg_Lines.TextMatrix(3,0,"Dscription")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,3,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,3,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,3,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,3,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,3,"Type","Locked","True")
+Gui.FormPO.gsfg_Lines.BuildStyle(2,3,"Format","Alignment",2)
+
+'Description
+Gui.FormPO.gsfg_Lines.TextMatrix(4,0,"Qty")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,4,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,4,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,4,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,4,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,4,"Type","Locked","True")
+Gui.FormPO.gsfg_Lines.BuildStyle(2,4,"Format","Alignment",2)
+
+'Qty
+Gui.FormPO.gsfg_Lines.TextMatrix(5,0,"UM")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,5,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,5,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,5,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,5,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,5,"Type","Locked","True")
+Gui.FormPO.gsfg_Lines.BuildStyle(2,5,"Format","Alignment",2)
+
+'Vendor
+Gui.FormPO.gsfg_Lines.TextMatrix(6,0,"Vendor")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,6,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,6,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,6,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,6,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,6,"Type","Locked","True")
+Gui.FormPO.gsfg_Lines.BuildStyle(2,6,"Format","Alignment",2)
+'
+'Job
+Gui.FormPO.gsfg_Lines.TextMatrix(7,0,"Job")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,7,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,7,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,7,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,7,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,7,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,7,"Type","Locked",True)
+
+'Suffix
+Gui.FormPO.gsfg_Lines.TextMatrix(8,0,"Suffix")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,8,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,8,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,8,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,8,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,8,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,8,"Type","Locked",True)
+
+'Sequence
+Gui.FormPO.gsfg_Lines.TextMatrix(9,0,"Sequence")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,9,"Type","Locked",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,9,"Color","Back","Grey")
+Gui.FormPO.gsfg_Lines.BuildStyle(1,9,"Fontstyle","Bold",True)
+Gui.FormPO.gsfg_Lines.BuildStyle(1,9,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,9,"Format","Alignment",2)
+Gui.FormPO.gsfg_Lines.BuildStyle(2,9,"Type","Locked",True)
+
+
+Gui.FormPO.gsfg_Lines.ApplyStyle(0,1)
+Gui.FormPO.gsfg_Lines.ApplyStyle(1,2)
+
+Gui.FormPO.gsfg_Lines.SetColumnPercentages(".10:.10:.15:.15:.10:.05:.15:.05:.05:.10")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("BuildStyles_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4001_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.BuildStyles.End
+
+Program.Sub.LoadScreen.Start
+F.Intrinsic.Control.SetErrorHandler("LoadScreen_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sRet.Declare(String)
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.Control.CallSub(Buildstyles)
+
+'Default Select Job and will auto call sub(OptJobs_Click)
+Gui.FormPO.optJobs.Value(1)
+'Set Blank Option for OpCode and Phase
+Gui.FormPO.ddlOpCode.AddItem("")
+Gui.FormPO.ddlPhase.AddItem("")
+
+
+'Load Project Phases and OpCodes "Operation"
+F.Intrinsic.String.Build("Select PROJECT from v_job_header where ltrim(rtrim(job)) + '-' + suffix  = '{0}'",V.Global.sJob.Trim,V.Local.sSql)
+F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+	V.Global.sProject.Set(V.ODBC.conX!rst.FieldValTrim!PROJECT)
+	F.Intrinsic.String.Build("Project: {0}",V.ODBC.conX!rst.FieldVal!PROJECT,V.Local.sRet)
+	Gui.FormPO.optProjs.Caption(V.Local.sRet)
+	F.Intrinsic.String.Build("Select Distinct PHASE from v_job_header where project = '{0}'",V.ODBC.conX!rst.FieldValTrim!PROJECT,V.Local.sSql)
+	F.ODBC.Connection!conX.OpenRecordsetRO("rstPhase",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.conX!rstPhase.EOF,<>,True)
+		F.Intrinsic.Control.DoUntil(V.ODBC.conX!rstPhase.EOF,=,True)
+			F.Intrinsic.Control.If(V.ODBC.conX!rstPhase.FieldValTrim!PHASE,<>,"")
+				Gui.FormPO.ddlPhase.AddItem(V.ODBC.conX!rstPhase.FieldValTrim!PHASE)
+			F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rstPhase.MoveNext
+		F.Intrinsic.Control.Loop
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rstPhase.Close
+'If no project associated then disable Select by project
+F.Intrinsic.Control.Else
+	Gui.FormPO.optProjs.Enabled(false)
+F.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadScreen_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4001_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadScreen.End
+
+program.sub.cmdupdate_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdupdate_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Rest Project selection and load only the project without phases,opcodes, as criteria again
+Gui.FormPO.ddlOpCode.ClearItems
+Gui.FormPO.ddlOpCode.AddItem("")
+F.Intrinsic.Control.CallSub(Optprojs_click)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdupdate_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdupdate_click.end
+
+program.sub.ddlphase_click.start
+F.Intrinsic.Control.SetErrorHandler("ddlphase_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.i.Declare(Long)
+
+V.uGlobal.uJobHeader.Redim(-1,-1)
+V.uGlobal.uJobOps.Redim(-1,-1)
+Gui.FormPO..Visible(false)
+F.Intrinsic.UI.InvokeWaitDialog("Loading Outside Sequences")
+'if phase is blank(unselected) then reset grid to select by  project only
+F.Intrinsic.Control.If(V.Screen.FormPO!ddlPhase.Text,=,"")
+	F.Intrinsic.Control.CallSub(Optprojs_click)
+F.Intrinsic.Control.EndIf
+
+'Load grid based on Project,phase
+'load job heade info to UDT
+F.Intrinsic.String.Build("Select Job,Suffix from v_JOB_HEADER where Project = '{0}' and Phase = '{1}' and DATE_CLOSED = '1900-01-01'",V.Global.sProject,V.Screen.FormPO!ddlPhase.Text,V.Local.sSql)
+'Loop through and add operations detail for each job-suffix
+F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobHeader",False)
+F.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+'exclude misc sequences
+F.Intrinsic.Control.If(V.Screen.FormPO!chkIncludeMisc.Value,<>,1)
+'Load Job Detail
+	F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound)
+		F.Intrinsic.String.Build("Select Operation,Part,Description,Units_Open,UM,Job,Suffix,Seq from v_JOB_OPERATIONS where ltrim(rtrim(job)) = '{0}' and suffix = '{1}' and LMO = 'O' and SEQ < '995000' and FLAG_CLOSED <> 'Y'",V.uGlobal.uJobHeader(v.Local.i)!Job.Trim,V.uGlobal.uJobHeader(v.Local.i)!Suffix.Trim,V.Local.sSql)
+		F.odbc.connection!conX.openrecordsetRO("rst",V.local.sSql)
+		F.intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Control.If(V.Local.i,=,V.uGlobal.uJobHeader.LBound)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",False)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i)
+'Include Misc Sequences
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound)
+		F.Intrinsic.String.Build("Select Operation,Part,Description,Units_Open,UM,Job,Suffix,Seq from v_JOB_OPERATIONS where ltrim(rtrim(job)) = '{0}' and suffix = '{1}'  and LMO = 'O' and FLAG_CLOSED <> 'Y'",V.uGlobal.uJobHeader(v.Local.i)!Job.Trim,V.uGlobal.uJobHeader(v.Local.i)!Suffix.Trim,V.Local.sSql)
+		F.odbc.connection!conX.openrecordsetRO("rst",V.local.sSql)
+		F.intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Control.If(V.Local.i,=,V.uGlobal.uJobHeader.LBound)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",False)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.Control.EndIf
+
+'Loop through and get vendor name
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound)
+	F.Intrinsic.String.Build("Select Name_Vendor from v_Vendor_Master where Vendor = '{0}'",V.uGlobal.uJobOps(v.Local.i)!Operation.Trim,V.Local.sSql)
+	F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+		V.uGlobal.uJobOps(v.Local.i)!Name_Vendor.Set(V.ODBC.conX!rst.FieldValTrim!Name_Vendor)
+		V.uGlobal.uJobOps(v.Local.i)!Select.Set("0")
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+F.Intrinsic.Control.Next(V.Local.i)
+'Sort UDT
+F.Intrinsic.Variable.UDTMultiQuickSort(V.uGlobal.uJobOps!Job,False,V.uGlobal.uJobOps!Suffix,False,V.uGlobal.uJobOps!Seq,False,V.uGlobal.uJobOps!Operation,False)
+
+'***where left off, have to load from UDT instead of loadRecordset 4/14/2015 SFF
+Gui.FormPO.gsfg_Lines.Visible(false)
+F.Intrinsic.Control.CallSub(Buildstyles)
+'Load UDT to Grid
+Gui.FormPO.gsfg_Lines.LoadFromUDT("V.uGlobal.uJobOps","Select::0*!*Operation::1*!*Part::2*!*Description::3*!*Units_Open::4*!*UM::5*!*Name_Vendor::6*!*Job::7*!*Suffix::8*!*Seq::9",2)
+Gui.FormPO.gsfg_Lines.Visible(true)
+Gui.FormPO..Visible(True)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Variable.UDTMultiFlagDuplicates(V.uGlobal.uJobOps!Operation)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uJobOps)
+
+Gui.FormPO.ddlOpCode.ClearItems
+Gui.FormPO.ddlOpCode.AddItem("")
+'load OpCodes based on phase selected
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound,1)
+	Gui.FormPO.ddlOpCode.AddItem(V.uGlobal.uJobOps(v.Local.i)!Part)
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ddlphase_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.ddlphase_click.end
+
+program.sub.ddlopcode_click.start
+F.Intrinsic.Control.SetErrorHandler("ddlopcode_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.i.Declare(Long)
+
+V.uGlobal.uJobHeader.Redim(-1,-1)
+V.uGlobal.uJobOps.Redim(-1,-1)
+Gui.FormPO..Visible(false)
+F.Intrinsic.UI.InvokeWaitDialog("Loading Outside Sequences")
+'Load grid based on Project,phase and operation OPcode
+'load job heade info to UDT
+F.Intrinsic.String.Build("Select Job,Suffix from v_JOB_HEADER where Project = '{0}' and Phase = '{1}' and DATE_CLOSED = '1900-01-01'",V.Global.sProject,V.Screen.FormPO!ddlPhase.Text,V.Local.sSql)
+'Loop through and add operations detail for each job-suffix
+F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobHeader",False)
+F.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close
+
+'exclude misc sequences
+F.Intrinsic.Control.If(V.Screen.FormPO!chkIncludeMisc.Value,<>,1)
+'Load Job Detail
+	F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound)
+		F.Intrinsic.String.Build("Select Operation,Part,Description,Units_Open,UM,Job,Suffix,Seq from v_JOB_OPERATIONS where ltrim(rtrim(job)) = '{0}' and suffix = '{1}' and LMO = 'O' and SEQ < '995000'  and Operation = '{2}' and FLAG_CLOSED <> 'Y'",V.uGlobal.uJobHeader(v.Local.i)!Job.Trim,V.uGlobal.uJobHeader(v.Local.i)!Suffix.Trim,V.Screen.FormPO!ddlOpCode.Text,V.Local.sSql)
+		F.odbc.connection!conX.openrecordsetRO("rst",V.local.sSql)
+		F.intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Control.If(V.Local.i,=,V.uGlobal.uJobHeader.LBound)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",False)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i)
+'Include Misc Sequences
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobHeader.LBound,V.uGlobal.uJobHeader.UBound)
+		F.Intrinsic.String.Build("Select Operation,Part,Description,Units_Open,UM,Job,Suffix,Seq from v_JOB_OPERATIONS where ltrim(rtrim(job)) = '{0}' and suffix = '{1}'  and LMO = 'O' and Operation = '{2}' and FLAG_CLOSED <> 'Y'",V.uGlobal.uJobHeader(v.Local.i)!Job.Trim,V.uGlobal.uJobHeader(v.Local.i)!Suffix.Trim,V.Screen.FormPO!ddlOpCode.Text,V.Local.sSql)
+		F.odbc.connection!conX.openrecordsetRO("rst",V.local.sSql)
+		F.intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Control.If(V.Local.i,=,V.uGlobal.uJobHeader.LBound)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",False)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uGlobal.uJobOps",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.Control.EndIf
+
+'Loop through and get vendor name
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Outside Sequences",V.Local.i,V.uGlobal.uJobOps.LBound,V.uGlobal.uJobOps.UBound)
+	F.Intrinsic.String.Build("Select Name_Vendor from v_Vendor_Master where Vendor = '{0}'",V.uGlobal.uJobOps(v.Local.i)!Operation.Trim,V.Local.sSql)
+	F.ODBC.Connection!conX.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+		V.uGlobal.uJobOps(v.Local.i)!Name_Vendor.Set(V.ODBC.conX!rst.FieldValTrim!Name_Vendor)
+		V.uGlobal.uJobOps(v.Local.i)!Select.Set("0")
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+F.Intrinsic.Control.Next(V.Local.i)
+'Sort UDT
+F.Intrinsic.Variable.UDTMultiQuickSort(V.uGlobal.uJobOps!Job,False,V.uGlobal.uJobOps!Suffix,False,V.uGlobal.uJobOps!Seq,False,V.uGlobal.uJobOps!Operation,False)
+
+'***where left off, have to load from UDT instead of loadRecordset 4/14/2015 SFF
+Gui.FormPO.gsfg_Lines.Visible(false)
+F.Intrinsic.Control.CallSub(Buildstyles)
+'Load UDT to Grid
+Gui.FormPO.gsfg_Lines.LoadFromUDT("V.uGlobal.uJobOps","Select::0*!*Operation::1*!*Part::2*!*Description::3*!*Units_Open::4*!*UM::5*!*Name_Vendor::6*!*Job::7*!*Suffix::8*!*Seq::9",2)
+Gui.FormPO.gsfg_Lines.Visible(true)
+Gui.FormPO..Visible(True)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ddlopcode_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.ddlopcode_click.end
+
+program.sub.chkincludemisc_click.start
+F.Intrinsic.Control.SetErrorHandler("chkincludemisc_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'this updates grid to include/remove miscellaneous sequences
+'if choosing by project then see if Op code is blank, if not then select by Op code, else by phase
+F.Intrinsic.Control.If(V.Screen.FormPO!optProjs.Value,=,True)
+	F.Intrinsic.Control.If(V.Screen.FormPO!ddlOpCode.Text,<>,"")
+		F.Intrinsic.Control.CallSub(Ddlopcode_click)
+	F.Intrinsic.Control.Elseif(V.Screen.FormPO!ddlPhase.Text,<>,"")
+		F.Intrinsic.Control.CallSub(Ddlphase_click)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(Optprojs_click)
+	F.Intrinsic.Control.EndIf
+'if selecting by job the call Optjobs_click to select by job
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.CallSub(Optjobs_click)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkincludemisc_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_OUTSIDE_PO_PROCESS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.chkincludemisc_click.end
+
+Program.Sub.Comments.Start
+${$0$}$Test Script$}$SFF$}$7/30/2014 10:28:13 AM
+Program.Sub.Comments.End
+
